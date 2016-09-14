@@ -16,6 +16,14 @@ public class redpackage {
 		System.out.println("请输入将要带上致富之路的贫民的数量：");
 		Scanner scan2=new Scanner(System.in);						//输入领红包总人数
 		num_people=scan2.nextDouble();
+		while(redpackage_amount/num_people<min)				//避免平均每人都不够0.01的情况
+		{
+			System.out.println("做人不能太贪心哦，钱都不够分了");
+			System.out.println("请重新输入将要包的红包数");
+			Scanner scan3=new Scanner(System.in);						//输入领红包总人数
+			num_people=scan3.nextDouble();
+			scan3.close();
+		}
 		while(num_people!=1){								//发红包循环体，最后一个人拿走剩下的金额
 		double max=(redpackage_amount/num_people)*2;		//设置最大红包金额
 		Random r=new Random();								//随机变量
